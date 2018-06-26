@@ -1645,15 +1645,15 @@ public class MethodModel{
      // Pass #1 create a linked list of instructions from head to tail
      final Map<Integer, Instruction> pcMap = createListOfInstructions();
 
-     LocalVariableTableEntry<LocalVariableInfo> localVariableTableEntry = method.getLocalVariableTableEntry();
-     if (localVariableTableEntry == null) {
-        localVariableTableEntry = new FakeLocalVariableTableEntry(pcMap, method);
+//     LocalVariableTableEntry<LocalVariableInfo> localVariableTableEntry = method.getLocalVariableTableEntry();
+//     if (localVariableTableEntry == null) {
+       LocalVariableTableEntry<LocalVariableInfo> localVariableTableEntry = new FakeLocalVariableTableEntry(pcMap, method);
         method.setLocalVariableTableEntry(localVariableTableEntry);
         logger.warning("Method "
               + method.getName()
               + method.getDescriptor()
               + " does not contain a LocalVariableTable entry (source not compiled with -g) codegen will attempt to create a synthetic table based on bytecode. This is experimental!!");
-     }
+//     }
 
      // pass #2 build branch graph
      buildBranchGraphs(pcMap);
